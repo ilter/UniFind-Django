@@ -5,7 +5,7 @@
     <title>Lead Detail {{ lead.id }}</title>
 </head>
 <body>
-<a href="/leads">Go back to leads</a>
+<a href="{% url 'leads:lead-list' %}">Go back to leads</a>
 <hr />
 <h1>Detail of {{ lead.first_name }}</h1>
 
@@ -14,5 +14,9 @@
     <p> This persons agent  {{ lead.agent }} </p>
     <p> This persons Phoned  {{ lead.phoned }} </p>
     <p> This persons Source  {{ lead.source }} </p>
+
+    <a href="{% url 'leads:lead-update' lead.pk %}">Update</a>
+    <a href="{% url 'leads:lead-delete' lead.pk %}">Delete</a>
+
 </body>
 </html>

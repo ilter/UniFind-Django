@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Lead, Agent
 from .forms import LeadForm, LeadModelForm
@@ -37,6 +37,28 @@ def lead_create(request):
         "form": form
     }
     return render(request, "leads/lead_create.html", context=context)
+
+
+def lead_delete(request, pk):
+    lead = Lead.objects.get(id=pk)
+    lead.delete()
+    return redirect('/leads')
+
+
+def lead_update(request, pk):
+    lead = Lead.objects.get(id=pk)
+    form = LeadModelForm(instance=lead)
+    if request.method == 'POST':
+        form = LeadModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/leads')
+
+    context = {
+        'form': form,
+        'lead': lead
+    }
+    return render(request, 'leads/lead_update.html', context)
 
 
 '''
