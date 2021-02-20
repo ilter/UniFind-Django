@@ -1,11 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 
-# Create your models here.
+class User(AbstractUser):
+    cellphone_number = models.CharField(max_length=13)
+
 
 class Agent(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 class Lead(models.Model):
@@ -24,5 +26,4 @@ class Lead(models.Model):
     phoned = models.BooleanField(default=False)
     source = models.CharField(choices=SOURCE_CHOICES, max_length=100)
 
-    profile_picture = models.ImageField(blank=True, null=True)
     special_files = models.FileField(blank=True, null=True)
