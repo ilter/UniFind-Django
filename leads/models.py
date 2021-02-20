@@ -9,6 +9,9 @@ class User(AbstractUser):
 class Agent(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.user.email
+
 
 class Lead(models.Model):
     SOURCE_CHOICES = (
@@ -27,3 +30,6 @@ class Lead(models.Model):
     source = models.CharField(choices=SOURCE_CHOICES, max_length=100)
 
     special_files = models.FileField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.first_name} {self.last_name} {self.age}'
