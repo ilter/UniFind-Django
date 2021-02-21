@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Lead List Page</h1>
+{% extends "base.html"%}
+{% block content %}
 <a href=" {% url 'leads:lead-create' %}">Create a new lead</a>
         {%  for lead in leads %}
-        <div>
+        <div class="lead">
         <a href="{% url 'leads:lead-detail' lead.pk %}">
             {{ lead.first_name }} {{ lead.second_name }}
         </a>
         </div>
         {% endfor  %}
+{% endblock content %}
 
-</body>
-</html>

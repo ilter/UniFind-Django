@@ -18,7 +18,6 @@ def lead_list(request):
 
 
 def lead_detail(request, pk):
-    print(f"PK {pk}")
     lead = Lead.objects.get(id=pk)
     context = {
         "lead": lead
