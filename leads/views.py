@@ -1,10 +1,58 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.urls import reverse
+
 from .models import Lead, Agent
 from .forms import LeadForm, LeadModelForm
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
-# Create your views here.
+# CRUD + L - Create, Retrieve, Update and Delete + List
+
+class LandingPageView(TemplateView):
+    template_name = 'landing_page.html'
+
+
+class LeadListView(ListView):
+    template_name = 'leads/lead_list.html'
+    queryset = Lead.objects.all()
+    context_object_name = 'leads'
+
+
+class LeadDetailView(DetailView):
+    template_name = 'leads/lead_detail.html'
+    queryset = Lead.objects.all()
+    context_object_name = 'lead'
+
+
+class LeadCreateView(CreateView):
+    template_name = 'leads/lead_create.html'
+    form_class = LeadModelForm
+
+    def get_success_url(self):
+        return reverse('leads:lead=list')
+
+
+class LeadUpdateView(UpdateView):
+    template_name = 'leads/lead_update.html'
+    queryset = Lead.objects.all()
+    form_class = LeadModelForm
+
+    def get_success_url(self):
+        return reverse('leads:lead=list')
+
+
+class LeadDeleteView(DeleteView):
+    template_name = 'leads/lead_delete.html'
+    queryset = Lead.objects.all()
+    form_class = LeadModelForm
+
+    def get_success_url(self):
+        return reverse('leads:lead=list')
+
+
+'''
+
 def home_page(request):
     return render(request, "leads/home_page.html")
 
@@ -60,7 +108,7 @@ def lead_update(request, pk):
     return render(request, 'leads/lead_update.html', context)
 
 
-'''
+
 def lead_create(request):
     form = LeadModelForm()
     if request.method == "POST":
@@ -86,5 +134,6 @@ def lead_create(request):
         "form": form
     }
     return render(request, "leads/lead_create.html", context=context)
+
 
 '''
