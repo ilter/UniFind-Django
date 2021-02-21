@@ -30,7 +30,7 @@ class LeadCreateView(CreateView):
     form_class = LeadModelForm
 
     def get_success_url(self):
-        return reverse('leads:lead=list')
+        return reverse('leads:lead-list')
 
 
 class LeadUpdateView(UpdateView):
@@ -39,7 +39,7 @@ class LeadUpdateView(UpdateView):
     form_class = LeadModelForm
 
     def get_success_url(self):
-        return reverse('leads:lead=list')
+        return reverse('leads:lead-list')
 
 
 class LeadDeleteView(DeleteView):
@@ -48,7 +48,7 @@ class LeadDeleteView(DeleteView):
     form_class = LeadModelForm
 
     def get_success_url(self):
-        return reverse('leads:lead=list')
+        return reverse('leads:lead-list')
 
 
 '''
