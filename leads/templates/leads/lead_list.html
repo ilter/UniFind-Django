@@ -1,6 +1,7 @@
 {% extends "base.html"%}
 {% block content %}
 <a href=" {% url 'leads:lead-create' %}">Create a new lead</a>
+    <hr />
         {%  for lead in leads %}
         <div class="lead">
         <a href="{% url 'leads:lead-detail' lead.pk %}">
