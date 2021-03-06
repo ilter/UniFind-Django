@@ -1,23 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Django Basic CRM</title>
-    <style>
-          .lead {
-              padding-top: 10px;
-              padding-bottom: 10px;
-              padding-left: 10px;
-              padding-right: 10px;
-              margin-top: 10px;
-              background-color: #f6f6f6;
-              width: 100%;
-          }
-    </style>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
 </head>
 
 <body>
+
+<div class="max-w-7xl mx-auto">
+    {% include 'navbar.html'  %}
     {% block content %}
     {% endblock content %}
+</div>
+{% include "scripts.html" %}
 </body>
 </html>
