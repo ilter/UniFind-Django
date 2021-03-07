@@ -35,7 +35,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'leads'
+    # thirdpart apps
+    'crispy_forms',
+    'crispy_tailwind',
+
+    # local apps
+    'leads',
 ]
 
 MIDDLEWARE = [
@@ -121,6 +126,10 @@ STATIC_ROOT = "static_root"
 
 AUTH_USER_MODEL = 'leads.User'
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-#Here I used console for side project. However In production you have to use stmp backend provider
+# Here I used console for side project. However In production you have to use stmp backend provider
 
 LOGIN_REDIRECT_URL = "/leads"
+LOGIN_URL = "/login"
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'tailwind'
+CRISPY_TEMPLATE_PACK = 'tailwind'
+
