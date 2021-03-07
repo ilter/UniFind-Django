@@ -129,6 +129,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 # Here I used console for side project. However In production you have to use stmp backend provider
 
 LOGIN_REDIRECT_URL = "/leads"
+LOGOUT_REDIRECT_URL = "/"
 LOGIN_URL = "/login"
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'tailwind'
 CRISPY_TEMPLATE_PACK = 'tailwind'

@@ -8,9 +8,11 @@
             <div>
                 <h1 class="text-4xl text-gray-800">Universities</h1>
             </div>
+            {% if request.user.is_authenticated %}
             <div>
                 <a class="text-gray-500 hover:text-blue-500" href="{% url 'leads:lead-create' %}">Add a university to your list</a>
             </div>
+            {% endif %}
         </div>
         <div class="flex flex-wrap -m-4">
          {% if request.user.is_authenticated %}
@@ -48,7 +50,6 @@
       <p class=" mx-auto leading-relaxed text-base">Welcome to Uni Find. UniFind helps you to track your university admission progress. You have to login to see universities which you applied.</p>
     </div>
     </div>
-  </div>
 </section>
       {% endif %}
         </div>
