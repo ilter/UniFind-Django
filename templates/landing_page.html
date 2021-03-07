@@ -7,7 +7,7 @@
     <div class="md:w-3/5 md:pl-6">
       <p class="leading-relaxed text-base">Uni Find here for you to help in your admission progress to your favorite universities. Sign Up and Login for more.</p>
       <div class="flex md:mt-4 mt-6">
-        <button class="inline-flex text-white bg-blue-500 border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 rounded">Sign Up</button>
+        <button onClick="{% url 'signup' %}" class="inline-flex text-white bg-blue-500 border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 rounded">Sign Up</button>
         <a href="{% url 'leads:lead-list' %}" class="text-blue-500 inline-flex items-center ml-4">Universities
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>

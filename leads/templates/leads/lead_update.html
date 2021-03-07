@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 {% load tailwind_filters %}
 {% block content %}
+    
+    <div class="max-w-lg mx-auto">
     <a href="{% url 'leads:lead-list' %}">Go back to universities</a>
     <hr />
-    <div class="max-w-lg mx-auto">
     <div class="py-5 border-t border-gray-200">
         <h1 class="text-4xl text-gray-800">Update The University</h1>
     </div>

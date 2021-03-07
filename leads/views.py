@@ -1,6 +1,6 @@
 from django.core.mail import send_mail
 from django.urls import reverse
-from .models import Lead, Agent
+from .models import University, Agent
 from .forms import LeadForm, LeadModelForm, CustomUserCreationForm
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -21,13 +21,13 @@ class LandingPageView(TemplateView):
 
 class LeadListView(ListView):
     template_name = 'leads/lead_list.html'
-    queryset = Lead.objects.all()
+    queryset = University.objects.all()
     context_object_name = 'leads'
 
 
 class LeadDetailView(DetailView):
     template_name = 'leads/lead_detail.html'
-    queryset = Lead.objects.all()
+    queryset = University.objects.all()
     context_object_name = 'lead'
 
 
@@ -51,7 +51,7 @@ class LeadCreateView(CreateView):
 
 class LeadUpdateView(UpdateView):
     template_name = 'leads/lead_update.html'
-    queryset = Lead.objects.all()
+    queryset = University.objects.all()
     form_class = LeadModelForm
 
     def get_success_url(self):
@@ -60,7 +60,7 @@ class LeadUpdateView(UpdateView):
 
 class LeadDeleteView(DeleteView):
     template_name = 'leads/lead_delete.html'
-    queryset = Lead.objects.all()
+    queryset = University.objects.all()
     form_class = LeadModelForm
 
     def get_success_url(self):

@@ -13,23 +13,15 @@ class Agent(models.Model):
         return self.user.email
 
 
-class Lead(models.Model):
-    SOURCE_CHOICES = (
-        ('YT', 'YouTube'),  # first value to store db second value for view
-        ('Google', 'Google'),
-        ('News', 'News'),
-    )
-
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+class University(models.Model):
+    university_name = models.CharField(max_length=30)
+    city = models.CharField(max_length=30)
     age = models.IntegerField(default=0)
     agent = models.ForeignKey('Agent', on_delete=models.SET_NULL, null=True)
     # if u want on_delete makes it null have to declare null=True
-
-    phoned = models.BooleanField(default=False)
-    source = models.CharField(choices=SOURCE_CHOICES, max_length=100)
-
-    special_files = models.FileField(blank=True, null=True)
+    phone_number = models.CharField(max_length=20)
+    email = models.EmailField()
+    admission_status = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name} {self.age}'
+        return f'{self.university_name} {self.city} {self.age}'
