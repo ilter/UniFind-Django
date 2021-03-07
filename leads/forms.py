@@ -15,7 +15,6 @@ class LeadModelForm(forms.ModelForm):
             'agent',
             'phoned',
             'source',
-            'special_files'
         )
 
 
