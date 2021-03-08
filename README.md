@@ -2,7 +2,7 @@
    
 ## Features :rocket:
 
-* **Python <a href="https://github.com/tiangolo/fastapi" class="external-link" target="_blank">**FastAPI**</a> backend.** 🛠
+* **Python <a href="https://docs.djangoproject.com/en/3.1/intro/tutorial01/" class="external-link" target="_blank">**Django**</a> backend.** 🛠
 * **PostgreSQL** - database :bar_chart:
 * **DigitalOcean** - :rocket:
 
